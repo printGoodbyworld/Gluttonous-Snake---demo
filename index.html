@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HHH的贪吃蛇游戏练习</title>
+    <title>HHH的贪吃蛇游戏练习（不能掉头）</title>
     <style>
         body {
             display: flex;
@@ -24,39 +24,46 @@
             display: grid;
             grid-template-columns: 1fr 50px 1fr;
             grid-template-rows: 1fr 50px 1fr;
-            width: 200px;
-            height: 200px;
+            width: 210px;
+            height: 210px;
             justify-items: center;
             align-items: center;
         }
         .controller button {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
+            position: relative;
+            top: 100px;
+            border: 1px solid #ff6969;
+            background-color: #fff;
         }
         .controller #up {
             grid-column: 2;
             grid-row: 1;
             position: relative;
-            top: 50px;
+            top: 100px;
         }
         .controller #down {
             grid-column: 2;
             grid-row: 3;
             position: relative;
-            top: 50px;
+            top: 100px;
         }
         .controller #left {
             grid-column: 1;
             grid-row: 2;
             position: relative;
-            top: 50px;
+            top: 100px;
         }
         .controller #right {
             grid-column: 3;
             grid-row: 2;
             position: relative;
-            top: 50px;
+            top: 100px;
         }
+        .controller button:active {
+            background-color: #fffc4b;
+            
     </style>
 </head>
 <body>
@@ -145,7 +152,7 @@
             // 绘制蛇和食物
             draw();
             // 每隔100毫秒执行一次游戏循环
-            setTimeout(gameLoop, 100);
+            setTimeout(gameLoop, 80);
         }
 
         // 监听按钮点击事件，改变蛇的移动方向
