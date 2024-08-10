@@ -17,14 +17,37 @@
             border: 1px solid black;
         }
         .controller {
-            display: flex;
-            justify-content: space-between;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: grid;
+            grid-template-columns: 1fr 50px 1fr;
+            grid-template-rows: 1fr 50px 1fr;
             width: 200px;
-            margin-top: 20px;
+            height: 200px;
+            justify-items: center;
+            align-items: center;
         }
         .controller button {
             width: 50px;
             height: 50px;
+        }
+        .controller #up {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .controller #down {
+            grid-column: 2;
+            grid-row: 3;
+        }
+        .controller #left {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .controller #right {
+            grid-column: 3;
+            grid-row: 2;
         }
     </style>
 </head>
@@ -32,9 +55,9 @@
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <div class="controller">
         <button id="up">上</button>
-        <button id="down">下</button>
         <button id="left">左</button>
         <button id="right">右</button>
+        <button id="down">下</button>
     </div>
     <script>
         // 获取canvas元素和上下文
@@ -140,6 +163,36 @@
                 dy = 0;
             }
         });
+                // 监听键盘事件，改变蛇的移动方向
+                document.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'ArrowUp':
+                    if (dy === 0) {
+                        dx = 0;
+                        dy = -1;
+                    }
+                    break;
+                case 'ArrowDown':
+                    if (dy === 0) {
+                        dx = 0;
+                        dy = 1;
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (dx === 0) {
+                        dx = -1;
+                        dy = 0;
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (dx === 0) {
+                        dx = 1;
+                        dy = 0;
+                    }
+                    break;
+            }
+        });
+
 
         // 开始游戏循环
         gameLoop();
