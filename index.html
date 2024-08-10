@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>在线贪吃蛇游戏</title>
+    <title>HHH的贪吃蛇游戏练习</title>
     <style>
+        .controller {
+          margin-top: 2000px; /* 调整这个值来改变按钮下移的距离 */
+  }
         body {
             display: flex;
             justify-content: center;
@@ -36,18 +39,26 @@
         .controller #up {
             grid-column: 2;
             grid-row: 1;
+            position: relative;
+            top: 100px;
         }
         .controller #down {
             grid-column: 2;
             grid-row: 3;
+            position: relative;
+            top: 100px;
         }
         .controller #left {
             grid-column: 1;
             grid-row: 2;
+            position: relative;
+            top: 100px;
         }
         .controller #right {
             grid-column: 3;
             grid-row: 2;
+            position: relative;
+            top: 100px;
         }
     </style>
 </head>
